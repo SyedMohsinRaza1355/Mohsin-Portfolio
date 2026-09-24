@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed Mohsin Raza (SMR) | Aspiring Solution Architect</title>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="navbar">
+        <nav class="container">
+            <a href="#hero" class="logo">SMR</a>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div id="nav-socials" class="nav-socials">
+                <!-- LinkedIn and GitHub logos injected by JS -->
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section container">
+            <!-- Content will be injected by JS -->
+            <div id="hero-content">
+                <div class="skeleton-text headline"></div>
+                <div class="skeleton-text tagline"></div>
+                <div class="skeleton-text bio"></div>
+                <div class="cta-buttons">
+                    <div class="skeleton-btn"></div>
+                    <div class="skeleton-btn"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section container">
+            <h2 class="section-title">About Me</h2>
+            <div id="about-content" class="grid-layout">
+                <!-- Content will be injected by JS -->
+            </div>
+        </section>
+
+        <section id="skills" class="section container">
+            <div class="section-header-wrap">
+                <h2 class="section-title">Skills & Technical Expertise</h2>
+                <p class="section-subtitle">Core programming fundamentals, computer languages, and architectural proficiencies</p>
+            </div>
+            
+            <!-- Sleek Interactive Filter & Sort Toolbar -->
+            <div class="skills-toolbar glass">
+                <div class="skills-filter-tabs" id="skills-filter-tabs">
+                    <!-- Category pills injected by JS -->
+                </div>
+                <div class="skills-sort-wrap">
+                    <span class="sort-caption"><i data-lucide="arrow-down-up" style="width: 14px; height: 14px;"></i> Sort:</span>
+                    <div class="sort-pill-group">
+                        <button class="sort-btn active" data-sort="default" id="sort-default">Default</button>
+                        <button class="sort-btn" data-sort="name" id="sort-name">A–Z</button>
+                        <button class="sort-btn" data-sort="proficiency" id="sort-proficiency">Proficiency</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="skills-content" class="skills-display-container">
+                <!-- Content will be injected by JS -->
+            </div>
+        </section>
+
+        <section id="education" class="section container">
+            <h2 class="section-title">Education</h2>
+            <div id="education-timeline" class="timeline">
+                <!-- Content will be injected by JS -->
+            </div>
+        </section>
+
+        <section id="certifications" class="section container">
+            <h2 class="section-title">Certifications</h2>
+            <div id="certifications-content" class="grid-layout">
+                <!-- Content will be injected by JS -->
+            </div>
+        </section>
+
+        <section id="contact" class="section container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div id="contact-content" class="contact-card glass">
+                <!-- Content will be injected by JS -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p id="copyright">&copy; <span id="year"></span> Syed Mohsin Raza. All rights reserved.</p>
+            <div id="social-links" class="social-links">
+                <!-- Content will be injected by JS -->
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
