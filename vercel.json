@@ -1,0 +1,13 @@
+{
+  "rewrites": [
+    { "source": "/blog", "destination": "/blog.html" },
+    { "source": "/blog/:slug", "destination": "/post.html" },
+    { "source": "/admin", "destination": "/admin/index.html" },
+    { "source": "/admin/login", "destination": "/admin/login.html" },
+    { "source": "/admin/editor", "destination": "/admin/editor.html" }
+  ],
+  "headers": [
+    { "source": "/admin/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] },
+    { "source": "/admin", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }
+  ]
+}

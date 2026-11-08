@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Editor</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/assets/blog.css"><link rel="stylesheet" href="/assets/admin/admin.css">
+</head>
+<body class="admin">
+<div class="a-bar">
+  <div class="a-actions"><a class="btn" href="/admin" id="back">&larr; Posts</a><span id="state" style="color:var(--text-muted);font-size:.85rem">New post</span></div>
+  <div class="a-actions">
+    <button class="btn" id="draft">Save draft</button>
+    <button class="btn" id="preview">Preview</button>
+    <button class="btn danger" id="unpub" hidden>Unpublish</button>
+    <button class="btn primary" id="pub">Publish</button>
+  </div>
+</div>
+<div class="ed-layout">
+  <div>
+    <input class="title-in" id="title" placeholder="Post title" maxlength="140">
+    <div class="cover-box" id="cover"><span id="cover-hint">Click or drop a cover photo (max 8 MB)</span><div class="progress" id="cprog"><i></i></div></div>
+    <input type="file" id="cover-file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" hidden>
+    <input id="cover-alt" placeholder="Cover photo alt text (describe the image)" hidden>
+    <div class="toolbar" id="tb">
+      <select id="blk"><option value="p">Paragraph</option><option value="1">Heading 1</option><option value="2">Heading 2</option><option value="3">Heading 3</option><option value="4">Heading 4</option></select>
+      <button data-c="bold"><b>B</b></button><button data-c="italic"><i>I</i></button><button data-c="underline"><u>U</u></button>
+      <button data-c="strike"><s>S</s></button><button data-c="code">&lt;/&gt;</button><button data-c="highlight">Mark</button>
+      <input type="color" id="color" value="#10b981" title="Text colour"><button data-c="link">Link</button>
+      <span class="sep"></span>
+      <button data-c="bullet">&bull; List</button><button data-c="ordered">1. List</button><button data-c="task">Tasks</button>
+      <button data-c="quote">Quote</button><button data-c="codeblock">Code block</button><button data-c="hr">Divider</button>
+      <span class="sep"></span>
+      <button data-c="left">Left</button><button data-c="center">Center</button><button data-c="right">Right</button>
+      <span class="sep"></span>
+      <button data-c="table">Table</button><button data-c="addrow">+Row</button><button data-c="delrow">-Row</button>
+      <button data-c="addcol">+Col</button><button data-c="delcol">-Col</button><button data-c="deltable">Del table</button>
+      <span class="sep"></span>
+      <button data-c="image">Image</button><button data-c="youtube">YouTube</button>
+      <span class="sep"></span>
+      <button data-c="undo">Undo</button><button data-c="redo">Redo</button>
+    </div>
+    <div id="editor" class="prose"></div>
+    <input type="file" id="img-file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" hidden>
+    <div class="counts" id="counts"></div>
+  </div>
+  <aside>
+    <div class="panel"><h3>Post settings</h3>
+      <label for="slug">URL slug</label><input id="slug" placeholder="my-first-post">
+      <div class="hint" id="slug-hint"></div>
+      <label for="excerpt">Excerpt</label><textarea id="excerpt" rows="3" maxlength="300"></textarea>
+      <label for="tags">Tags (comma separated)</label><input id="tags" placeholder="web, notes">
+      <label for="pdate">Publish date (optional)</label><input id="pdate" type="datetime-local">
+    </div>
+    <div class="panel"><h3>SEO</h3>
+      <label for="mt">SEO title</label><input id="mt" maxlength="70">
+      <label for="md">SEO description</label><textarea id="md" rows="3" maxlength="170"></textarea>
+    </div>
+  </aside>
+</div>
+<div class="modal" id="modal"><div class="inner"><button class="btn" id="close">Close preview</button><div class="article" id="pv"></div></div></div>
+<script src="/assets/sanitize-bundle.js"></script>
+<script src="/assets/admin/editor-bundle.js"></script>
+<script type="module" src="/assets/admin/editor.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/assets/admin/admin.css">
+</head>
+<body class="admin">
+<div class="a-bar"><h1>Posts</h1>
+  <div class="a-actions"><a class="btn primary" href="/admin/editor">New post</a><a class="btn" href="/blog" target="_blank">View blog</a><button class="btn" id="out">Sign out</button></div></div>
+<div class="a-wrap">
+  <div class="stats"><div class="stat"><b id="n-all">0</b><span>Total</span></div><div class="stat"><b id="n-pub">0</b><span>Published</span></div><div class="stat"><b id="n-dr">0</b><span>Drafts</span></div></div>
+  <div class="filters"><input id="q" type="search" placeholder="Search posts..."><select id="st"><option value="">All</option><option value="published">Published</option><option value="draft">Drafts</option></select></div>
+  <div id="list"></div>
+</div>
+<script src="/assets/sanitize-bundle.js"></script>
+<script type="module" src="/assets/admin/dashboard.js"></script>
+</body>
+</html>
