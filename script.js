@@ -28,6 +28,8 @@ function renderPortfolio(data) {
         renderHero(data.basics);
         renderAbout(data.basics, data.about);
         setupSkillsSystem(data.skills);
+        renderProjects(data.projects);
+        renderLeetCode(data.leetcode);
         renderEducation(data.education);
         renderCertificates(data.certificates);
         renderContactAndSocials(data.basics);
@@ -85,6 +87,9 @@ function renderHero(basics) {
                 </a>
                 <a href="#skills" class="btn btn-secondary">
                     <i data-lucide="code-2"></i> View Skills
+                </a>
+                <a href="Syed-Mohsin-Raza-Resume.pdf" download="Syed-Mohsin-Raza-Resume.pdf" class="btn btn-resume" title="Download my resume (PDF)">
+                    <i data-lucide="download"></i> Download Resume
                 </a>
             </div>
             <div class="hero-social-divider" aria-hidden="true"></div>
@@ -342,6 +347,133 @@ function renderEducation(education) {
         `;
         educationTimeline.appendChild(eduItem);
     });
+}
+
+// 5b. Projects
+function renderProjects(projects) {
+    const container = document.getElementById('projects-content');
+    if (!container || !projects) return;
+
+    container.innerHTML = '';
+    projects.forEach((p, index) => {
+        const card = document.createElement('div');
+        card.className = 'project-card card glass';
+        const cover = p.gallery && p.gallery.length ? p.gallery[0] : null;
+        card.innerHTML = `
+            ${cover ? `<button class="project-cover-button" type="button" data-project-details="${index}" aria-label="Open ${p.name} case study"><img class="project-cover" src="${cover.src}" alt="${cover.caption}" loading="lazy"><span class="project-cover-hint">View case study</span></button>` : ''}
+            <div class="project-card-body">
+                <div class="project-heading-row"><h3>${p.name}</h3>${p.status ? `<span class="project-status">${p.status}</span>` : ''}</div>
+                <p class="project-tagline">${p.tagline}</p>
+                ${p.role || p.year ? `<p class="project-meta">${[p.role, p.year].filter(Boolean).join(' · ')}</p>` : ''}
+                <p class="project-summary">${p.description}</p>
+                <div class="project-tech-list">${p.tech.map(t => `<span class="project-tech">${t}</span>`).join('')}</div>
+                <div class="project-actions">
+                    <button type="button" class="btn btn-primary" data-project-details="${index}">Case study</button>
+                    <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Source</a>
+                    ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Live demo</a>` : ''}
+                </div>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+
+    container.querySelectorAll('[data-project-details]').forEach(button => {
+        button.addEventListener('click', () => openProjectCaseStudy(projects[Number(button.dataset.projectDetails)]));
+    });
+    if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons();
+}
+
+function openProjectCaseStudy(project) {
+    const dialog = document.getElementById('project-case-study');
+    const content = document.getElementById('project-case-study-content');
+    if (!dialog || !content || !project) return;
+
+    let activeImage = 0;
+    const gallery = project.gallery || [];
+    const renderCaseStudy = () => {
+        const image = gallery[activeImage];
+        content.innerHTML = `
+            <div class="case-study-header">
+                <div><p class="case-study-eyebrow">Project case study</p><h2 id="project-case-study-title">${project.name}</h2><p class="project-tagline">${project.tagline}</p></div>
+                <button type="button" class="case-study-close" data-close-case-study aria-label="Close case study">×</button>
+            </div>
+            <p class="case-study-description">${project.description}</p>
+            ${project.role || project.year || project.status ? `<div class="case-study-meta">${[project.status, project.role, project.year].filter(Boolean).map(item => `<span>${item}</span>`).join('')}</div>` : ''}
+            ${image ? `<div class="case-study-gallery"><img src="${image.src}" alt="${image.caption}" class="case-study-image"><div class="case-study-gallery-footer"><button type="button" data-gallery-prev aria-label="Previous screenshot" ${gallery.length < 2 ? 'disabled' : ''}>←</button><p>${image.caption}<span>${activeImage + 1} / ${gallery.length}</span></p><button type="button" data-gallery-next aria-label="Next screenshot" ${gallery.length < 2 ? 'disabled' : ''}>→</button></div></div>` : '<div class="case-study-no-gallery">Project screenshots will be added here.</div>'}
+            <div class="case-study-columns"><section><h3>Highlights</h3><ul class="case-study-highlights">${project.highlights.map(item => `<li>${item}</li>`).join('')}</ul></section><section><h3>Technology</h3><div class="project-tech-list">${project.tech.map(item => `<span class="project-tech">${item}</span>`).join('')}</div></section></div>
+            <div class="project-actions case-study-actions"><a href="${project.github}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Source code</a>${project.demo ? `<a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Live demo</a>` : ''}</div>
+        `;
+        content.querySelector('[data-close-case-study]').addEventListener('click', () => dialog.close());
+        const previous = content.querySelector('[data-gallery-prev]');
+        const next = content.querySelector('[data-gallery-next]');
+        if (previous) previous.addEventListener('click', () => { activeImage = (activeImage - 1 + gallery.length) % gallery.length; renderCaseStudy(); });
+        if (next) next.addEventListener('click', () => { activeImage = (activeImage + 1) % gallery.length; renderCaseStudy(); });
+    };
+    renderCaseStudy();
+    if (!dialog.open) dialog.showModal();
+}
+
+async function renderLeetCode(profile) {
+    const container = document.getElementById('leetcode-content');
+    if (!container || !profile || !profile.username) return;
+
+    container.innerHTML = '';
+    const heading = document.createElement('div');
+    heading.className = 'leetcode-heading';
+    const identity = document.createElement('div');
+    const eyebrow = document.createElement('p');
+    eyebrow.className = 'case-study-eyebrow';
+    eyebrow.textContent = 'Problem-solving profile';
+    const title = document.createElement('h3');
+    title.textContent = profile.username;
+    const link = document.createElement('a');
+    link.className = 'btn btn-secondary';
+    link.href = profile.url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = 'View LeetCode profile';
+    identity.append(eyebrow, title);
+    heading.append(identity, link);
+
+    const metrics = document.createElement('div');
+    metrics.className = 'leetcode-metrics';
+    container.append(heading, metrics);
+    const loading = document.createElement('p');
+    loading.className = 'leetcode-status';
+    loading.textContent = 'Loading public profile stats…';
+    container.appendChild(loading);
+
+    try {
+        const response = await fetch(`/api/leetcode?username=${encodeURIComponent(profile.username)}`, { headers: { Accept: 'application/json' } });
+        if (!response.ok) throw new Error('Stats are unavailable right now.');
+        const stats = await response.json();
+        const rows = [
+            ['Solved', stats.totalSolved, 'total'],
+            ['Easy', stats.easySolved, 'easy'],
+            ['Medium', stats.mediumSolved, 'medium'],
+            ['Hard', stats.hardSolved, 'hard']
+        ];
+        rows.forEach(([label, value, tone]) => {
+            const card = document.createElement('div');
+            card.className = `leetcode-metric leetcode-${tone}`;
+            const number = document.createElement('strong');
+            number.textContent = Number.isFinite(Number(value)) ? Number(value).toLocaleString() : '—';
+            const caption = document.createElement('span');
+            caption.textContent = `${label} problems`;
+            card.append(number, caption);
+            metrics.appendChild(card);
+        });
+        if (stats.ranking) {
+            const rank = document.createElement('p');
+            rank.className = 'leetcode-rank';
+            rank.textContent = `Global ranking: #${Number(stats.ranking).toLocaleString()}`;
+            container.appendChild(rank);
+        }
+        loading.textContent = 'Live public stats · cached for one hour';
+    } catch (error) {
+        loading.textContent = 'Live stats are temporarily unavailable. Use the profile link to view the latest activity.';
+        loading.classList.add('leetcode-error');
+    }
 }
 
 // 6. Certifications

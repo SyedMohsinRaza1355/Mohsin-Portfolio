@@ -20,6 +20,8 @@
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#leetcode">LeetCode</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -78,6 +80,20 @@
             </div>
         </section>
 
+        <section id="projects" class="section container">
+            <h2 class="section-title">Projects</h2>
+            <div id="projects-content" class="grid-layout">
+                <!-- Content will be injected by JS -->
+            </div>
+        </section>
+
+        <section id="leetcode" class="section container">
+            <h2 class="section-title">LeetCode</h2>
+            <div id="leetcode-content" class="leetcode-panel glass" aria-live="polite">
+                <p class="leetcode-loading">Loading public profile stats…</p>
+            </div>
+        </section>
+
         <section id="education" class="section container">
             <h2 class="section-title">Education</h2>
             <div id="education-timeline" class="timeline">
@@ -108,6 +124,10 @@
             </div>
         </div>
     </footer>
+
+    <dialog id="project-case-study" class="case-study-dialog" aria-labelledby="project-case-study-title">
+        <div id="project-case-study-content"></div>
+    </dialog>
 
     <script src="data.js"></script>
     <script src="script.js"></script>

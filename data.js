@@ -1,4 +1,8 @@
 const portfolioData = {
+  "leetcode": {
+    "username": "dgXhIZHCQo",
+    "url": "https://leetcode.com/u/dgXhIZHCQo/"
+  },
   "basics": {
     "name": "Syed Mohsin Raza",
     "shortName": "SMR",
@@ -260,6 +264,125 @@ const portfolioData = {
             "Git GUI & Version Inspection"
           ]
         }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Multi Tenent Ecommerce Webapp",
+      "tagline": "Multi-tenant ecommerce platform for independent stores to manage products, orders and online sales.",
+      "description": "An ecommerce platform where independent stores run their own storefronts and manage products, orders and customers. Store owners can configure delivery fees, promotions, returns and stock alerts, with tools for abandoned carts and back-in-stock messaging. It also includes restaurant workflows such as menus, supplier purchasing and table booking.",
+      "highlights": [
+        "Manage store storefronts, products, customers and orders",
+        "Configure delivery fees, promotions, returns and loyalty rewards",
+        "Recover abandoned carts and alert customers when items return to stock",
+        "Track inventory, suppliers and purchase orders",
+        "Manage restaurant menus and table bookings"
+      ],
+      "tech": ["Next.js", "React", "TypeScript", "MongoDB Atlas", "Tailwind CSS", "Stripe", "Easypaisa", "JazzCash", "Resend", "bcryptjs", "jose", "qrcode", "Zod", "Vitest"],
+      "github": "https://github.com/SyedMohsinRaza1355/Ecommerce-Webapp",
+      "demo": "https://ecommerce-webapp-sable.vercel.app",
+      "status": "In progress",
+      "role": "Solo project",
+      "year": "2026",
+      "gallery": [
+        { "src": "assets/projects/multi-tenent-ecommerce/01-platform-home.webp", "caption": "Storeforge platform landing page" },
+        { "src": "assets/projects/multi-tenent-ecommerce/02-features.webp", "caption": "Platform features" },
+        { "src": "assets/projects/multi-tenent-ecommerce/03-plans.webp", "caption": "Subscription plans" },
+        { "src": "assets/projects/multi-tenent-ecommerce/04-demo-store-home.webp", "caption": "Demo burger store storefront" },
+        { "src": "assets/projects/multi-tenent-ecommerce/05-demo-store-products.webp", "caption": "Demo store featured products" },
+        { "src": "assets/projects/multi-tenent-ecommerce/06-admin-stores.webp", "caption": "Platform admin store management" }
+      ]
+    },
+    {
+      "name": "KIHD Doctor ↔ Pharmacy Connection",
+      "tagline": "Connected prescription system for Karachi Institute of Heart Diseases",
+      "description": "A web system that links the hospital's doctor console with the pharmacy through one shared database. Doctors send prescriptions that appear instantly in the pharmacy queue, and dispensing updates stock and the doctor's view.",
+      "highlights": [
+        "Role-based login: doctors and pharmacy staff each get their own pages and API permissions",
+        "Atomic dispensing that deducts stock and marks prescriptions as dispensed",
+        "Dose builder that calculates quantity, plus same-formula alternative medicine search",
+        "Serverless API on Vercel with Supabase (PostgreSQL) and session-cookie authentication"
+      ],
+      "tech": ["JavaScript", "Node.js", "Supabase", "PostgreSQL", "Vercel", "HTML", "CSS"],
+      "github": "https://github.com/SyedMohsinRaza1355/pharmacy-and-doctor-connection",
+      "demo": "https://pharmacy-and-doctor-connection.vercel.app",
+      "gallery": [
+        { "src": "assets/projects/kihd-doctor-pharmacy/01-cover.webp", "caption": "Hospital account sign-in" },
+        { "src": "assets/projects/kihd-doctor-pharmacy/02-pharmacy-queue.webp", "caption": "Pharmacy queue with incoming prescription" },
+        { "src": "assets/projects/kihd-doctor-pharmacy/03-inventory.webp", "caption": "Medicine inventory and stock levels" },
+        { "src": "assets/projects/kihd-doctor-pharmacy/04-doctor-console.webp", "caption": "Doctor console for creating prescriptions" },
+        { "src": "assets/projects/kihd-doctor-pharmacy/05-sent-prescriptions.webp", "caption": "Prescription status and dispensing history" }
+      ]
+    },
+    {
+      "name": "Pause (Sukoon): Digital Wellbeing App",
+      "tagline": "Private, installable wellbeing app for university students",
+      "description": "A mobile-first progressive web app that helps students manage screen time, focus, sleep and mood. It works offline, keeps data on the device by default, and offers optional accounts with sync.",
+      "highlights": [
+        "Study tools: Pomodoro timer, weekly goals, spaced-repetition flashcards and a focus garden",
+        "Sleep log with sleep sounds, app-usage tracking, mood check-ins and weekly insights",
+        "Optional Supabase accounts, push reminders via Web Push, and moderated anonymous community circles",
+        "Installable PWA with offline support, automated tests and Vercel deployment"
+      ],
+      "tech": ["JavaScript", "PWA", "Supabase", "Web Push", "Vercel", "HTML", "CSS"],
+      "github": "https://github.com/Phoenix191001/Digital-Wellbeing-App",
+      "demo": "https://pause-gamma.vercel.app",
+      "gallery": [
+        { "src": "assets/projects/pause-sukoon/01-cover.webp", "caption": "Home dashboard and on-device privacy" },
+        { "src": "assets/projects/pause-sukoon/02-study-tools.webp", "caption": "Study tools and focus garden" },
+        { "src": "assets/projects/pause-sukoon/03-wellbeing-options.webp", "caption": "Wellbeing dashboard with sleep and usage options" },
+        { "src": "assets/projects/pause-sukoon/04-focus-session.webp", "caption": "Focus session with a 25-minute timer selected" },
+        { "src": "assets/projects/pause-sukoon/05-sleep-wind-down.webp", "caption": "Sleep screen with bedtime countdown and wind-down" },
+        { "src": "assets/projects/pause-sukoon/06-sleep-timer-controls.webp", "caption": "Sleep timer sounds and duration controls" }
+      ]
+    },
+    {
+      "name": "GU TECH Learning Management Portal",
+      "tagline": "Role-based LMS for Ghazali University of Technology",
+      "description": "A full-stack learning management system where admins provision accounts and courses, teachers publish and grade coursework, and students submit work, take timed quizzes and track marks and GPA. Access is enforced on the server by role and course membership.",
+      "highlights": [
+        "Role-based dashboards for students, teachers and admins",
+        "Quiz builder with auto-grading, grading desk, live gradebook with CSV export",
+        "Supabase Auth, Postgres, Storage and row-level security; audit history of grades",
+        "REST API with Zod validation, rate limiting and Vitest/Supertest tests"
+      ],
+      "tech": ["React", "TypeScript", "Vite", "Node.js", "Express", "Supabase", "PostgreSQL", "Tailwind CSS"],
+      "github": "https://github.com/SyedMohsinRaza1355/GUTECH-LMS-",
+      "demo": "https://gutech-lms.vercel.app",
+      "gallery": [
+        { "src": "assets/projects/gutech-lms/01-login.webp", "caption": "Login screen with demo account access" },
+        { "src": "assets/projects/gutech-lms/02-student-dashboard.webp", "caption": "Student dashboard with courses and pending work" },
+        { "src": "assets/projects/gutech-lms/03-admin-dashboard.webp", "caption": "Admin dashboard for courses and accounts" },
+        { "src": "assets/projects/gutech-lms/04-teacher-dashboard.webp", "caption": "Teacher dashboard with classes and grading queue" }
+      ]
+    },
+    {
+      "name": "Personal Portfolio Website",
+      "tagline": "This site: a data-driven digital portfolio",
+      "description": "A responsive portfolio that renders all its content (skills, education, certificates, projects) from a single data file, with a blog and admin panel.",
+      "highlights": [
+        "Content rendered dynamically from structured JSON data",
+        "Interactive skills explorer and glass-style responsive UI",
+        "Deployed on Vercel"
+      ],
+      "tech": ["JavaScript", "HTML", "CSS"],
+      "github": "https://github.com/SyedMohsinRaza1355/Mohsin-Portfolio",
+      "demo": "https://mohsin-portfolio1.vercel.app"
+    },
+    {
+      "name": "Web Calculator",
+      "tagline": "Browser-based calculator built with vanilla JavaScript",
+      "description": "A calculator built from scratch with HTML, CSS and JavaScript, with number and operator keys, decimals, clear and evaluate.",
+      "highlights": [
+        "Interactive keypad with operator buttons and a live display",
+        "Plain HTML, CSS and JavaScript with no frameworks"
+      ],
+      "tech": ["HTML", "CSS", "JavaScript"],
+      "github": "https://github.com/SyedMohsinRaza1355/Practice-mids-calculator",
+      "demo": "",
+      "gallery": [
+        { "src": "assets/projects/web-calculator/01-calculator.webp", "caption": "Calculator keypad and display" }
       ]
     }
   ],
